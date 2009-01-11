@@ -1,9 +1,10 @@
 package Site::Com::StackOverflow::User;
 
 use Moose 0.64;
-use MooseX::Method::Signatures 0.6;
+use MooseX::Method::Signatures 0.06;
 use version;
 our $VERSION = qv('0.1');
+use Site::Com::StackOverflow;
 
 extends 'Site::Com::StackOverflow';
 
