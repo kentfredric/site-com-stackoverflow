@@ -9,8 +9,9 @@ use MooseX::Method::Signatures 0.06;
 
 method ns ( Str $url! ){
     $url = '::' . $url if( (length $url )== 0 );
-    my $pkg = 'Site::Com::Stackoverlow::' . $url;
+    my $pkg = 'Site::Com::StackOverflow::' . $url;
     return sub { 
+        eval 'use ' . $pkg;
         return $pkg->new(@_);
     };
 };
