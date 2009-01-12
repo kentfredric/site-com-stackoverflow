@@ -1,14 +1,17 @@
 package Site::Com::StackOverflow::User::Reputation;
-use Moose;
+
+use MooseX::Declare 0.03;
+use Data::Dumper;
 use version;
-our $VERSION=qv('0.1');
+our $VERSION = qv('0.1');
 
-extends qw( Site::Com::StackOverflow::User );
+class Site::Com::StackOverflow::User::Reputation extends
+  Site::Com::StackOverflow::User {
 
-method uri ( DateTime :$from! , DateTime :$to! ){
-    return SUPER::uri($self) . '/' . $from . '/' . $to ;
-}
+    override uri( DateTime $from!, DateTime $to! ) {
+        return super() . '/' . $from . '/' . $to ;
+    };
 
-
+  };
 1;
 
